@@ -41,42 +41,42 @@
 #include <serial/serial.h>
 #include <fstream>
 
-#include <boost/function.hpp>
+#include <functional>
 #include <boost/thread.hpp>
 //#include <boost/bind.hpp>
 
 namespace ublox {
 
-typedef boost::function<double()> GetTimeCallback;
-typedef boost::function<void()> HandleAcknowledgementCallback;
+typedef std::function<double()> GetTimeCallback;
+typedef std::function<void()> HandleAcknowledgementCallback;
 
 // Messaging callbacks
-typedef boost::function<void(const std::string&)> DebugMsgCallback;
-typedef boost::function<void(const std::string&)> InfoMsgCallback;
-typedef boost::function<void(const std::string&)> WarningMsgCallback;
-typedef boost::function<void(const std::string&)> ErrorMsgCallback;
+typedef std::function<void(const std::string&)> DebugMsgCallback;
+typedef std::function<void(const std::string&)> InfoMsgCallback;
+typedef std::function<void(const std::string&)> WarningMsgCallback;
+typedef std::function<void(const std::string&)> ErrorMsgCallback;
 
 // GPS Data Callbacks
-typedef boost::function<void(CfgPrt&, double&)> PortSettingsCallback;
-typedef boost::function<void(CfgNav5&, double&)> ConfigureNavigationParametersCallback;
-typedef boost::function<void(NavPosLLH&, double&)> NavPosLLHCallback;
-typedef boost::function<void(NavSol&, double&)> NavSolCallback;
-typedef boost::function<void(NavStatus&, double&)> NavStatusCallback;
-typedef boost::function<void(NavVelNed&, double&)> NavVelNedCallback;
-typedef boost::function<void(NavSVInfo&, double&)> NavSVInfoCallback;
-typedef boost::function<void(NavGPSTime&, double&)> NavGPSTimeCallback;
-typedef boost::function<void(NavUTCTime&, double&)> NavUTCTimeCallback;
-typedef boost::function<void(NavDOP&, double&)> NavDOPCallback;
-typedef boost::function<void(NavDGPS&, double&)> NavDGPSCallback;
-typedef boost::function<void(NavClock&, double&)> NavClockCallback;
-typedef boost::function<void(EphemSV&, double&)> AidEphCallback;
-typedef boost::function<void(AlmSV&, double&)> AidAlmCallback;
-typedef boost::function<void(AidHui&, double&)> AidHuiCallback;
-typedef boost::function<void(AidIni&, double&)> AidIniCallback;
-typedef boost::function<void(RawMeas&, double&)> RxmRawCallback;
-typedef boost::function<void(SubframeData&, double&)> RxmSubframeCallback;
-typedef boost::function<void(SVStatus&, double&)> RxmSvsiCallback;
-typedef boost::function<void(ParsedEphemData&, double&)> ParsedEphemCallback;
+typedef std::function<void(CfgPrt&, double&)> PortSettingsCallback;
+typedef std::function<void(CfgNav5&, double&)> ConfigureNavigationParametersCallback;
+typedef std::function<void(NavPosLLH&, double&)> NavPosLLHCallback;
+typedef std::function<void(NavSol&, double&)> NavSolCallback;
+typedef std::function<void(NavStatus&, double&)> NavStatusCallback;
+typedef std::function<void(NavVelNed&, double&)> NavVelNedCallback;
+typedef std::function<void(NavSVInfo&, double&)> NavSVInfoCallback;
+typedef std::function<void(NavGPSTime&, double&)> NavGPSTimeCallback;
+typedef std::function<void(NavUTCTime&, double&)> NavUTCTimeCallback;
+typedef std::function<void(NavDOP&, double&)> NavDOPCallback;
+typedef std::function<void(NavDGPS&, double&)> NavDGPSCallback;
+typedef std::function<void(NavClock&, double&)> NavClockCallback;
+typedef std::function<void(EphemSV&, double&)> AidEphCallback;
+typedef std::function<void(AlmSV&, double&)> AidAlmCallback;
+typedef std::function<void(AidHui&, double&)> AidHuiCallback;
+typedef std::function<void(AidIni&, double&)> AidIniCallback;
+typedef std::function<void(RawMeas&, double&)> RxmRawCallback;
+typedef std::function<void(SubframeData&, double&)> RxmSubframeCallback;
+typedef std::function<void(SVStatus&, double&)> RxmSvsiCallback;
+typedef std::function<void(ParsedEphemData&, double&)> ParsedEphemCallback;
 
 class Ublox
 {
